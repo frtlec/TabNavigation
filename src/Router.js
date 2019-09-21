@@ -6,6 +6,7 @@ import Home from "./screens/Home";
 import Contacts from "./screens/Contacts";
 import ContactDetail from "./screens/ContactDetail";
 import Settings from "./screens/Settings";
+import SettingsModal from './components/SettingsModal';
 
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -52,9 +53,27 @@ const TabNavigator = createBottomTabNavigator({
     }
 },{
     tabBarOptions:{
-        activeTintColor:'red'
+        activeTintColor:'#f8f8f8',
+        showLabel:false,
+        inactiveTintColor:'#586589',
+        style:{
+            backgroundColor:'#171f33'
+        }
     },
     initialRouteName:'Contacts'
 });
 
-export default createAppContainer(TabNavigator);
+const ModalStack=createStackNavigator({
+    TabNavigator:{
+        screen:TabNavigator
+    },
+    SettingsModal:{
+        screen:SettingsModal
+    }
+
+},{
+    model:'modal',
+    headerMode:'none'
+});
+
+export default createAppContainer(ModalStack);
