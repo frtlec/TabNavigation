@@ -1,5 +1,5 @@
 import React from "react";
-import { createStackNavigator,createBottomTabNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator,createBottomTabNavigator, createAppContainer,createMaterialTopTabNavigator } from "react-navigation";
 
 //screens
 import Home from "./screens/Home";
@@ -29,7 +29,7 @@ const ContactStack=createStackNavigator({
 });
 
 
-const TabNavigator = createBottomTabNavigator({
+const TabNavigator = createMaterialTopTabNavigator({
     Home:{
         screen:Home,
         navigationOptions:{
@@ -54,7 +54,6 @@ const TabNavigator = createBottomTabNavigator({
 },{
     tabBarOptions:{
         activeTintColor:'#f8f8f8',
-        showLabel:false,
         inactiveTintColor:'#586589',
         style:{
             backgroundColor:'#171f33'
